@@ -1,9 +1,9 @@
 ---
 name: hr-compensation-excel
-description: "OpenClaw skill for HR compensation internship work: clean payroll and salary data, validate employee compensation records, build Excel formula checks, prepare pivot-style reports, document confidentiality controls, and help explain Excel/SQL/AI capability for HR compensation interviews."
+description: "OpenClaw skill for HR compensation work: clean payroll and salary data, validate employee compensation records, build Excel formula checks, prepare pivot-style reports, and document confidentiality controls for sensitive HR data."
 version: "1.0.0"
 metadata:
-  {"openclaw":{"emoji":"💼","requires":{"bins":["python3"]},"tags":["hr","compensation","excel","payroll","interview"]}}
+  {"openclaw":{"emoji":"💼","requires":{"bins":["python3"]},"tags":["hr","compensation","excel","payroll","reporting"]}}
 ---
 
 # HR Compensation Excel
@@ -16,12 +16,11 @@ Use this skill when the user is preparing for or performing HR compensation data
 - 用 Excel 公式检查准确性、完整性、及时性。
 - 用 VLOOKUP/XLOOKUP、COUNTIFS、SUMIFS、AVERAGEIFS、IF 等公式做核对。
 - 生成按部门、月份、职级、城市的薪酬统计报表。
-- 面试 HR 薪酬实习生、薪酬专员、HR 数据分析相关岗位。
-- 向面试官展示一个能落地的 Excel 数据处理流程。
+- 搭建可复用的薪酬 Excel 数据处理流程。
 
 ## Core Workflow
 
-1. 明确交付物：清洗后的数据、异常清单、公式核对表、透视汇总表、面试演示文件或流程说明。
+1. 明确交付物：清洗后的数据、异常清单、公式核对表、透视汇总表、示例文件或流程说明。
 2. 保留原始数据：把源数据放在 `raw_payroll_data`，不要直接覆盖。
 3. 标准化字段：月份、员工 ID、姓名、部门、城市、职级、在职状态、基本工资、补贴、奖金、社保、公积金、个税。
 4. 建字典表：部门负责人/成本中心、职级薪酬区间、城市规则、员工状态。
@@ -43,7 +42,7 @@ When creating an Excel workbook, prefer these sheets:
 - `lookup_tables`: 部门、职级、城市、状态等规则表。
 - `validation_checks`: 行级校验公式和异常标签。
 - `summary_report`: 按部门/月度/职级的汇总报表。
-- `interview_talking_points`: 面试时可讲的流程、公式和保密意识。
+- `process_notes`: 流程、公式和保密处理说明。
 
 Recommended Excel features:
 
@@ -56,7 +55,7 @@ Recommended Excel features:
 
 ## Demo Script
 
-Run the bundled script to generate an interview-ready sample workbook:
+Run the bundled script to generate a sample workbook:
 
 ```bash
 python3 scripts/build_compensation_demo.py --output assets/hr_compensation_demo.xlsx
@@ -72,13 +71,12 @@ The generated workbook demonstrates:
 - duplicate checks
 - salary-band checks
 - department summary report
-- interview talking points
+- process notes
 
-## Interview Mode
+## Usage Notes
 
-When the user is preparing for an interview, read `references/interview-playbook.md` and help them explain:
+When the user needs implementation guidance, read `references/usage-guide.md` and help them explain:
 
-- How this workflow maps to the JD.
 - Which Excel formulas solve which business problems.
-- How to describe salary-data confidentiality.
-- How to answer "你 Excel 到什么程度?" with concrete examples.
+- How to structure raw data, validation sheets, and summary reports.
+- How to handle salary-data confidentiality.
